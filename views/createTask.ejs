@@ -1,0 +1,11 @@
+<h2>➕ Добавить задачу</h2>
+
+<form action="/tasks" method="POST">
+    <input type="text" name="title" placeholder="Название задачи" required>
+    <textarea name="description" placeholder="Описание"></textarea>
+    <label>Дедлайн:</label>
+    <input type="datetime-local" name="deadline">
+    <button type="submit">Создать</button>
+</form>
+
+<a href="/" class="btn">⬅️ Назад</a>

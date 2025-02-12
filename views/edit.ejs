@@ -1,0 +1,11 @@
+<h2>✏️ Редактировать задачу</h2>
+
+<form action="/edit/<%= task._id %>" method="POST">
+    <input type="text" name="title" value="<%= task.title %>" required>
+    <textarea name="description"><%= task.description %></textarea>
+    <label>Дедлайн:</label>
+    <input type="datetime-local" name="deadline" value="<%= task.deadline ? new Date(task.deadline).toISOString().slice(0, -1) : '' %>">
+    <button type="submit">Сохранить</button>
+</form>
+
+<a href="/" class="btn">⬅️ Назад</a>

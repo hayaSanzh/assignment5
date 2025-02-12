@@ -1,0 +1,24 @@
+<h2>📌 Мои задачи</h2>
+
+<% if (tasks.length > 0) { %>
+    <ul>
+        <% tasks.forEach(task => { %>
+            <li>
+                <div>
+                    <strong><%= task.title %></strong>
+                    <p>🕒 Дедлайн: <%= task.deadline ? new Date(task.deadline).toLocaleString() : "Без дедлайна" %></p>
+                </div>
+                <div>
+                    <a href="/edit/<%= task._id %>" class="btn">✏️ Редактировать</a>
+                    <form action="/delete/<%= task._id %>" method="POST" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">🗑 Удалить</button>
+                    </form>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+<% } else { %>
+    <p>✅ У вас пока нет задач.</p>
+<% } %>
+
+<a href="/create" class="btn">➕ Добавить задачу</a>
