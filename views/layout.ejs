@@ -5,17 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
     <link rel="stylesheet" href="/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
     <nav>
-        <a href="/">🏠 Главная</a>
-        <% if (user) { %>
-            <a href="/logout">🚪 Выйти</a>
-        <% } else { %>
-            <a href="/login">🔑 Вход</a>
-            <a href="/register">📝 Регистрация</a>
-        <% } %>
+        <h1>Task Manager 📝</h1>
+        <div class="nav-links">
+            <a href="/"><i class="fas fa-home"></i> Главная</a>
+            <a href="/create"><i class="fas fa-plus-circle"></i> Добавить</a>
+            <% if (user) { %>
+                <a href="/logout"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+            <% } else { %>
+                <a href="/login"><i class="fas fa-sign-in-alt"></i> Войти</a>
+                <a href="/register"><i class="fas fa-user-plus"></i> Регистрация</a>
+            <% } %>
+        </div>
     </nav>
 
     <div class="container">

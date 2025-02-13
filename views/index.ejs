@@ -1,24 +1,22 @@
 <h2>📌 Мои задачи</h2>
 
 <% if (tasks.length > 0) { %>
-    <ul>
+    <div class="task-list">
         <% tasks.forEach(task => { %>
-            <li>
-                <div>
-                    <strong><%= task.title %></strong>
-                    <p>🕒 Дедлайн: <%= task.deadline ? new Date(task.deadline).toLocaleString() : "Без дедлайна" %></p>
-                </div>
-                <div>
-                    <a href="/edit/<%= task._id %>" class="btn">✏️ Редактировать</a>
+            <div class="task-card">
+                <h3><i class="fas fa-tasks"></i> <%= task.title %></h3>
+                <p><i class="fas fa-clock"></i> Дедлайн: <%= task.deadline ? new Date(task.deadline).toLocaleString() : "Без дедлайна" %></p>
+                <div class="task-actions">
+                    <a href="/edit/<%= task._id %>" class="btn"><i class="fas fa-edit"></i> Редактировать</a>
                     <form action="/delete/<%= task._id %>" method="POST" style="display:inline;">
-                        <button type="submit" class="btn btn-danger">🗑 Удалить</button>
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Удалить</button>
                     </form>
                 </div>
-            </li>
+            </div>
         <% }) %>
-    </ul>
+    </div>
 <% } else { %>
-    <p>✅ У вас пока нет задач.</p>
+    <p class="empty-tasks">✅ У вас пока нет задач.</p>
 <% } %>
 
-<a href="/create" class="btn">➕ Добавить задачу</a>
+<a href="/create" class="btn big-btn"><i class="fas fa-plus"></i> Добавить задачу</a>

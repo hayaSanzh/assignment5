@@ -1,11 +1,18 @@
-<h2>➕ Добавить задачу</h2>
+<div class="task-form">
+    <h2>➕ Добавить новую задачу</h2>
 
-<form action="/tasks" method="POST">
-    <input type="text" name="title" placeholder="Название задачи" required>
-    <textarea name="description" placeholder="Описание"></textarea>
-    <label>Дедлайн:</label>
-    <input type="datetime-local" name="deadline">
-    <button type="submit">Создать</button>
-</form>
+    <form action="/tasks" method="POST">
+        <label><i class="fas fa-heading"></i> Название задачи</label>
+        <input type="text" name="title" placeholder="Введите название..." required>
 
-<a href="/" class="btn">⬅️ Назад</a>
+        <label><i class="fas fa-align-left"></i> Описание</label>
+        <textarea name="description" placeholder="Описание задачи..."></textarea>
+
+        <label><i class="fas fa-calendar-alt"></i> Дедлайн</label>
+        <input type="datetime-local" name="deadline">
+
+        <button type="submit" class="btn big-btn"><i class="fas fa-check"></i> Создать</button>
+    </form>
+
+    <a href="/" class="btn"><i class="fas fa-arrow-left"></i> Назад</a>
+</div>
