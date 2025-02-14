@@ -41,10 +41,16 @@ exports.login = async (req, res) => {
             return res.redirect("/login");
         }
 
-        // Создаем сессию
-        req.session.user = user;
-        req.flash("success_msg", "Вы вошли в систему!");
-        res.redirect("/");
+
+
+        if (user.twoFAEnabled) {
+            req.session.tempUser = user;
+            return res.redirect("/2fa-verify");
+        } else {
+            req.session.user = user;
+            req.flash("success_msg", "Вы вошли в систему!");
+            res.redirect("/");
+        }   
     } catch (err) {
         req.flash("error_msg", "Ошибка авторизации.");
         res.redirect("/login");
